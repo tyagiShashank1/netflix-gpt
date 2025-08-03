@@ -3,10 +3,19 @@
 - create-react-app
 - configure tailwind css
 - Header
+- Routing of App
 - Login Form
 - Sign Up Form
-
-
+- Form Validation
+- useRef Hook
+- Setting up Google Firebase
+- Deploying our app to production
+- Create Sign Up User Account
+- Implement Sign In User API
+- Created our Redux Store with userSlice
+- Implemented Sign Out
+- Update User Profile 
+- Fetch from TMDB Movies    
 
 
 # Features
@@ -22,5 +31,5 @@
             - MovieLists * N
 
 - NetflixGPT
-    -SearchBar
+    -SearchBar 
     -Movie Suggestions
