@@ -3,13 +3,12 @@ import Header from "./Header";
 import { checkValidData } from "../Utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../Utils/firebase'
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { USER_AVATAR } from "../Utils/constants";
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const toggleSignInForm = () => {
@@ -35,21 +34,19 @@ const Login = () => {
                     // Signed up 
                     const user = userCredential.user;
                     updateProfile(user, {
-                        displayName: fullName.current.value, photoURL: "https://images.pexels.com/photos/53594/blue-clouds-day-fluffy-53594.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        displayName: fullName.current.value, photoURL: USER_AVATAR,
                     }).then(() => {
                         const { uid, email, displayName, photoURL } = auth.currentUser;
                         dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
-                        navigate('/browse');
                     }).catch((error) => {
                     });
-                    console.log("Sign Up Successful");
 
                 })
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     setErrorMessage(errorMessage);
-                    console.log(errorMessage + '-' + errorCode);
+
                     // ..
                 });
 
@@ -60,10 +57,10 @@ const Login = () => {
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
                 .then((userCredential) => {
                     // Signed in 
+
                     const user = userCredential.user;
-                    console.log(user);
-                    navigate('/browse');
-                    console.log("Sign In Successful");
+
+
 
                     // ...
                 })

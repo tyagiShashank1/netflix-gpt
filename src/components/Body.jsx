@@ -1,15 +1,10 @@
 import Login from "./Login";
 import Browse from "./Browse";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
-import { useEffect } from "react";
-import { auth } from "../Utils/firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import { useDispatch } from "react-redux";
-import { addUser, removeUser } from "../Utils/userSlice";
+
 
 const Body = () => {
-  const dispatch = useDispatch();
 
   const appRouter = createBrowserRouter([
     {
@@ -23,22 +18,15 @@ const Body = () => {
   ]);
 
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName, photoURL } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL:photoURL }));
-      }
-      else {
-        dispatch(removeUser());
 
-      }
-    });
-  }, [])
+
+  // 'onAuthStateChanged' continues to work in the background.
+  //Every time something changes in auth (sign-in, sign-out, token refresh), Firebase calls your callback.
 
   return (
     <div>
       <RouterProvider router={appRouter} />
+
     </div>
   )
 }
