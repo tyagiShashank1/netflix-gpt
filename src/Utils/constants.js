@@ -7,5 +7,7 @@ export  const API_OPTIONS = {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjdiNjgwODdiNGFiODc2MWIwZWQ0ZDdmZjJkMGM1ZCIsIm5iZiI6MTc1NDU1MTkzMi43MzEsInN1YiI6IjY4OTQ1NjdjMGQyMTA0Y2M0ZTA3YzQ5NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Pa_rAAl_kt3ghULfsaAwEFUz-MtzrxC4Qjqw7jtvPoA'
             }
         };
+
+export const MOVIE_IMG_CDN_URL = "https://image.tmdb.org/t/p/w500"
 // 5f7b68087b4ab8761b0ed4d7ff2d0c5d
 // eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjdiNjgwODdiNGFiODc2MWIwZWQ0ZDdmZjJkMGM1ZCIsIm5iZiI6MTc1NDU1MTkzMi43MzEsInN1YiI6IjY4OTQ1NjdjMGQyMTA0Y2M0ZTA3YzQ5NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Pa_rAAl_kt3ghULfsaAwEFUz-MtzrxC4Qjqw7jtvPoA

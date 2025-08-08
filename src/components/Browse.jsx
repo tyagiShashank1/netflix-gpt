@@ -2,12 +2,18 @@ import Header from "./Header";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../hooks/usePopularMobvies";
+import useTrendingMovies from "../hooks/useTrendingMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
 
 const Browse = () => {
 
 
     //Making an API call for getting movies and storing in our app
     useNowPlayingMovies();
+    usePopularMovies();
+    useTrendingMovies();
+    useUpcomingMovies();
 
 
     return (
