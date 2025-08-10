@@ -25,11 +25,8 @@ const moviesSlice = createSlice({
     addUpcomingMovies:function(state,action){
       state.upcomingMovies=action.payload;
     },
-    removeNowPlayingMovies:function(state,action){
-     state.nowPlayingMovies = null;
-    }
   },
 });
 
-export const {addTrailer, addNowPlayingMovies, addPopularMovies,addTrendingMovies, addUpcomingMovies,removeNowPlayingMovies } = moviesSlice.actions;
+export const {addTrailer, addNowPlayingMovies, addPopularMovies,addTrendingMovies, addUpcomingMovies } = moviesSlice.actions;
 export default moviesSlice.reducer;

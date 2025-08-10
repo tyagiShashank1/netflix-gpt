@@ -7,7 +7,9 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO } from "../Utils/constants";
-import { removeNowPlayingMovies } from "../Utils/moviesSlice";
+import {toggleGptSearchView} from '../Utils/gptSlice'
+import { SUPPORTED_LANGUAGES } from "../Utils/constants";
+import {changeLanguage} from '../Utils/configSlice';
 const Header = () => {
 
 
@@ -17,6 +19,15 @@ const Header = () => {
         return store.user;
     })
 
+    const isGptView = useSelector(function(appStore){
+        return appStore.gpt.showGptSearch;
+    })
+    //GPT button click
+    const handleGptButtonClick = () =>{
+        //Toggle GPT Search View
+        dispatch(toggleGptSearchView());
+    }
+
     //Sign Out
     const handleSignOut = () => {
         signOut(auth).then(() => {
@@ -25,6 +36,11 @@ const Header = () => {
         });
     }
 
+    //handleDrowdownValueChange
+
+    const handleDrowdownValueChange = (e) =>{
+            dispatch(changeLanguage(e.target.value));
+    }
     //
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -46,16 +62,23 @@ const Header = () => {
             unsubscribe();
         }
     }, [])
-
+ 
     //get Now playing movies
-    
+
     return (
         <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
             <img className="w-44" src={LOGO} alt="logo" />
-            {user && <div className="flex p-2">
+            {user && (<div className="flex p-2">
+                {isGptView &&(<select className="p-2 m-2 bg-gray-900 text-white rounded-lg" onChange={(e)=>handleDrowdownValueChange(e)}>
+                    {SUPPORTED_LANGUAGES.map((item)=>{
+                        return <option key={item.identifier} value={item.identifier}>{item.name}</option>
+                    })}
+                </select>)}
+                <button onClick={()=>{handleGptButtonClick()}}className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg">{isGptView?"Home Page":"GPT Search"}</button>
+
                 <img className="w-12 h-12" src={user?.photoURL} alt="usericon" />
                 <button onClick={handleSignOut} className="font-bold text-white ">(Sign Out)</button>
-            </div>}
+            </div>)}
         </div>
     )
 }

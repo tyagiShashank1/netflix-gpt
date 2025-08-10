@@ -5,9 +5,14 @@ import SecondaryContainer from "./SecondaryContainer";
 import usePopularMovies from "../hooks/usePopularMobvies";
 import useTrendingMovies from "../hooks/useTrendingMovies";
 import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import GptSearch from "./GptSearch";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
 
+    const showGptSearch = useSelector(function (appStore) {
+        return appStore.gpt.showGptSearch;
+    })
 
     //Making an API call for getting movies and storing in our app
     useNowPlayingMovies();
@@ -19,6 +24,12 @@ const Browse = () => {
     return (
         <div>
             <Header />
+            {showGptSearch ? (<GptSearch />) : (
+                <>
+                    <MainContainer />
+                    <SecondaryContainer />
+                </>)}
+
             {/**
              Main Container
              
@@ -28,8 +39,7 @@ const Browse = () => {
                 - Mobie Lists * N
                     - Cards * N
              */}
-             <MainContainer/>
-             <SecondaryContainer/>
+
         </div>
     )
 }
