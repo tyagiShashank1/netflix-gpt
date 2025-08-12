@@ -76,7 +76,7 @@ const Header = () => {
                 </select>)}
                 <button onClick={()=>{handleGptButtonClick()}}className="py-2 px-4 mx-4 my-2 bg-red-800 text-white rounded-lg">{isGptView?"Home Page":"Gemini Search"}</button>
 
-                <img className="hidden md:blockw-12 h-12" src={user?.photoURL} alt="usericon" />
+                <img className="hidden md:block w-12 h-12" src={user?.photoURL} alt="usericon" />
                 <button onClick={handleSignOut} className="font-bold text-white ">(Sign Out)</button>
             </div>)}
         </div>

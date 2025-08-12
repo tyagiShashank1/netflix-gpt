@@ -91,7 +91,7 @@ const Login = () => {
                 <input type="text" ref={email} placeholder="Email Address" className="p-4 my-4 bg-gray-700 border-white w-full rounded-lg" />
                 <input type="password" ref={password} placeholder="Password" className="p-4 my-4 bg-gray-700 w-full rounded-lg" />
                 {errorMessage && <p className="text-red-500 font-bold text-lg py-2">{errorMessage}</p>}
-                <button type="button" className="p-4 my-6 bg-red-700 rounded-lg w-full rounded-lg" onClick={() => { hanldeButtonClick() }}>{isSignInForm === true ? 'Sign In' : 'Sign Up'}</button>
+                <button type="button" className="p-4 my-6 bg-red-700 w-full rounded-lg" onClick={() => { hanldeButtonClick() }}>{isSignInForm === true ? 'Sign In' : 'Sign Up'}</button>
                 <p className="py-4 underline cursor-pointer" onClick={() => toggleSignInForm()}>{isSignInForm === true ? 'New To Netflix? Sign Up Now' : 'Already Registered? Sign In Now'}</p>
 
             </form>
