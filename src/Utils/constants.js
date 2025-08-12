@@ -7,7 +7,7 @@ export const API_OPTIONS = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjdiNjgwODdiNGFiODc2MWIwZWQ0ZDdmZjJkMGM1ZCIsIm5iZiI6MTc1NDU1MTkzMi43MzEsInN1YiI6IjY4OTQ1NjdjMGQyMTA0Y2M0ZTA3YzQ5NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Pa_rAAl_kt3ghULfsaAwEFUz-MtzrxC4Qjqw7jtvPoA",
+      "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
 
@@ -20,5 +20,5 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "hindi", name: "Hindi" },
   { identifier: "spanish", name: "Spanish" },
 ];
-// 5f7b68087b4ab8761b0ed4d7ff2d0c5d
-// eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZjdiNjgwODdiNGFiODc2MWIwZWQ0ZDdmZjJkMGM1ZCIsIm5iZiI6MTc1NDU1MTkzMi43MzEsInN1YiI6IjY4OTQ1NjdjMGQyMTA0Y2M0ZTA3YzQ5NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Pa_rAAl_kt3ghULfsaAwEFUz-MtzrxC4Qjqw7jtvPoA
+
+export const GEMINI_AI_KEY = process.env.REACT_APP_GEMINI_AI_KEY;

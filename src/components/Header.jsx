@@ -66,17 +66,17 @@ const Header = () => {
     //get Now playing movies
 
     return (
-        <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-            <img className="w-44" src={LOGO} alt="logo" />
-            {user && (<div className="flex p-2">
+        <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between ">
+            <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
+            {user && (<div className="flex p-2 justify-between">
                 {isGptView &&(<select className="p-2 m-2 bg-gray-900 text-white rounded-lg" onChange={(e)=>handleDrowdownValueChange(e)}>
                     {SUPPORTED_LANGUAGES.map((item)=>{
                         return <option key={item.identifier} value={item.identifier}>{item.name}</option>
                     })}
                 </select>)}
-                <button onClick={()=>{handleGptButtonClick()}}className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg">{isGptView?"Home Page":"GPT Search"}</button>
+                <button onClick={()=>{handleGptButtonClick()}}className="py-2 px-4 mx-4 my-2 bg-red-800 text-white rounded-lg">{isGptView?"Home Page":"Gemini Search"}</button>
 
-                <img className="w-12 h-12" src={user?.photoURL} alt="usericon" />
+                <img className="hidden md:blockw-12 h-12" src={user?.photoURL} alt="usericon" />
                 <button onClick={handleSignOut} className="font-bold text-white ">(Sign Out)</button>
             </div>)}
         </div>

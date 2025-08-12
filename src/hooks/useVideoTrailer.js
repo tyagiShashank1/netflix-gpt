@@ -6,11 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 const useVideoTrailer = (movieId) =>{
     const dispatch = useDispatch();
+     const trailer = useSelector(function(appStore){
+        return appStore.movies.trailer;
+    })
     const trailerKey = useSelector(function(appStore){
         return appStore.movies?.trailer?.key;
     })
     useEffect(() => {
-        movieVideo();
+       if(!trailer) movieVideo();
     }, [])
 
     //fetch movie trailer video
